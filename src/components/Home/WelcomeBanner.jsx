@@ -7,17 +7,17 @@ const WelcomeBanner = () => {
     return (
         <Paper sx={{ padding: '20px', marginBottom: '40px', textAlign: 'center' }}>
         <Typography variant="h4" gutterBottom>
-            Welcome to Uniswap Analytics
+            Welcome to Vector Store
         </Typography>
         <Typography variant="body1" gutterBottom>
-            Track pool events, visualize liquidity trends, and leverage machine learning predictions for Uniswap V3 pools.
+            Track miner's performance, supports fairly competition.
         </Typography>
-        <Button variant="contained" color="primary" onClick={()=> navigate("/pools/")}>
+        {/* <Button variant="contained" color="primary" onClick={()=> navigate("/pools/")}>
             Explore Pools
         </Button>
         <Button variant="contained" sx={{ marginLeft: '10px' }} onClick={()=> navigate("/analytics/")}>
-            View Analytics
-        </Button>
+            View Analytics */}
+        {/* </Button> */}
         </Paper>
     );
 };

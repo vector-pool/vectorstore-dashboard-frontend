@@ -11,14 +11,14 @@ const Header = () => {
         </Link>
       </div>
       <div className="title-container">
-        <span className="title">Velora</span>
+        <span className="title">Vector Store</span>
       </div>
       <nav>
         <ul>
           <li>
             <Link to="/">Home</Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="/pools">Pools</Link>
           </li>
           <li>
@@ -29,7 +29,7 @@ const Header = () => {
           </li>
           <li>
             <Link to="/api-docs">API Docs</Link>
-          </li>
+          </li> */}
           <li>
             <Link to="/about">About</Link>
           </li>

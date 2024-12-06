@@ -5,7 +5,7 @@ const RecentEvents = () => {
   return (
     <Paper sx={{ padding: '20px', marginBottom: '40px' }}>
       <Typography variant="h5" gutterBottom>
-        Recent Events
+        Miner's Performance
       </Typography>
       <div className="event-filters" sx={{ marginBottom: '10px' }}>
         <Button variant="outlined" sx={{ marginRight: '10px' }}>All</Button>

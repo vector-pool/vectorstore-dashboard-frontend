@@ -5,31 +5,31 @@ const FeaturedMetrics = () => {
   return (
     <Paper sx={{ padding: '20px', marginBottom: '40px' }}>
       <Typography variant="h5" gutterBottom>
-        Featured Metrics
+        Top miner
       </Typography>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6} md={3}>
           <Paper sx={{ padding: '10px', textAlign: 'center' }}>
-            <Typography variant="h6">Total Volume (24h)</Typography>
-            <Typography variant="body1">$1,234,567</Typography>
+            <Typography variant="h6">Total storage (24h)</Typography>
+            <Typography variant="body1">325GB</Typography>
           </Paper>
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
           <Paper sx={{ padding: '10px', textAlign: 'center' }}>
-            <Typography variant="h6">Total Liquidity</Typography>
-            <Typography variant="body1">$12,345,678</Typography>
+            <Typography variant="h6">Current Incentive</Typography>
+            <Typography variant="body1">0.08</Typography>
           </Paper>
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
           <Paper sx={{ padding: '10px', textAlign: 'center' }}>
-            <Typography variant="h6">Top Fee-Generating Pool (24h)</Typography>
-            <Typography variant="body1">USDC/ETH</Typography>
+            <Typography variant="h6">Daily Rewards</Typography>
+            <Typography variant="body1">3.5 Tao</Typography>
           </Paper>
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
           <Paper sx={{ padding: '10px', textAlign: 'center' }}>
-            <Typography variant="h6">Most Active Pool</Typography>
-            <Typography variant="body1">DAI/ETH</Typography>
+            <Typography variant="h6">Average Reward Score</Typography>
+            <Typography variant="body1">0.87</Typography>
           </Paper>
         </Grid>
       </Grid>

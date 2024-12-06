@@ -12,7 +12,7 @@ const HomePage = () => {
     <Container className="homepage" sx={{ padding: '20px' }}>
       <WelcomeBanner />
       <FeaturedMetrics />
-      <TopPoolsSnapshot />
+      {/* <TopPoolsSnapshot /> */}
       <RecentEvents />
       <KeyFeatures />
       <CallToAction />
