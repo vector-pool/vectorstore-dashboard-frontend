@@ -19,11 +19,13 @@ const EventsTimeline = ({ poolId }) => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>Timestamp</TableCell>
-              <TableCell>Event Type</TableCell>
-              <TableCell>Details</TableCell>
-              <TableCell>Liquidity Impact</TableCell>
-              <TableCell>Price Impact</TableCell>
+              <TableCell>UID</TableCell>
+              <TableCell>ORDER</TableCell>
+              <TableCell>HOTKEY</TableCell>
+              <TableCell>INCENTIVE</TableCell>
+              <TableCell>DAILY REWARD</TableCell>
+              <TableCell>LIVE</TableCell>
+              <TableCell>DAILY REWARD</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>

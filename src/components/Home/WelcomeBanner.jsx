@@ -10,7 +10,7 @@ const WelcomeBanner = () => {
             Welcome to Vector Store
         </Typography>
         <Typography variant="body1" gutterBottom>
-            Track miner's performance, supports fairly competition.
+            Track the miner's performance, supports fair competition.
         </Typography>
         {/* <Button variant="contained" color="primary" onClick={()=> navigate("/pools/")}>
             Explore Pools
