@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VectorStore Subnet</title>
+    <style>
+        :root {
+            --bg-color-dark: #121212;
+            --text-color-dark: #e0e0e0;
+            --header-bg-dark: #130f15;
+            --card-bg-dark: #1e1e1e;
+            --table-header-dark: #333333;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color-dark);
+            color: var(--text-color-dark);
+            transition: all 0.3s ease;
+        }
+
+        header {
+            background-color: var(--header-bg-dark);
+            color: white;
+            padding: 20px 10px;
+            text-align: center;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 20px auto;
+            background: var(--card-bg-dark);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        <!-- h1, h2, h3 {
+            color: var(--header-bg-dark);
+            transition: color 0.3s ease;
+        } -->
+
+        h1 {
+            margin-top: 0;
+            color: white
+        }
+
+        h2, h3 {
+            color: rgb(131, 195, 34)
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table, th, td {
+            border: 1px solid #444;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--table-header-dark);
+            transition: background-color 0.3s ease;
+        }
+
+        /* CSS to align items in a row */
+        .link-container {
+            display: flex; /* Enables flexbox layout */
+            align-items: center; /* Vertically aligns items */
+            gap: 10px; /* Adds spacing between the items */
+            position: absolute; /* Positions the container absolutely */
+            right: 50px; /* Adds 50px padding from the right */
+            top: 20px; /* Adjust this to position vertically */
+        }
+
+        .link-container p {
+            margin: 0; /* Removes default paragraph margins */
+        }
+
+        a {
+            text-decoration: none; /* Removes underline from links */
+            color: inherit; /* Inherits the text color */
+        }
+
+        img {
+            vertical-align: middle; /* Aligns the image with the text */
+            width: 20px; /* Sets image width */
+            height: 20px; /* Sets image height */
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: var(--header-bg-dark);
+            color: white;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>VectorStore Subnet</h1>
+        <div class="link-container">
+            <p>
+                <a href="https://discord.gg" target="_blank">
+                    Discord
+                    <img src="/logo192.png" alt="Discord">
+                </a>
+            </p>
+            <p>
+                <a href="https://discord.gg" target="_blank">
+                    Discord
+                    <img src="/logo512.png" alt="Github">
+                </a>
+            </p>
+        </div>
+    </header>
+    <main>
+        <section>
+            <h2>Validator Installation</h2>
+            <p>Please see Validator Setup in the quick start guide.</p>
+        </section>
+        <section>
+            <h2>Miner Installation</h2>
+            <p>Please see Miner Setup in the quick start guide.</p>
+        </section>
+        <section>
+            <h2>Abstract</h2>
+            <p>This subnet is dedicated to providing a reliable and decentralized vector storage solution, specifically designed to enhance AI training and development within the Bittensor ecosystem.</p>
+        </section>
+        <section>
+            <h2>Objectives & Contributions</h2>
+            <p>The primary objective of Subnet VectorStore is to embed texts and store them efficiently. Once stored, it processes queries from validators to identify the most relevant results based on the pre-computed embeddings.</p>
+            <ul>
+                <li>Miners embed and store data, primarily text, and respond to queries from validators.</li>
+                <li>Validators assess miners' performance by evaluating the quality of vector storage and query result accuracy.</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Units</h2>
+            <h3>User</h3>
+            <p>The largest unit of storage, similar to an organization in Pinecone, encompassing multiple organizations.</p>
+            <h3>Organization</h3>
+            <p>The mid-level unit of storage, comprising several namespaces.</p>
+            <h3>Namespace</h3>
+            <p>The smallest unit of storage, capable of containing hundreds or thousands of vectors, each representing an embedding of text.</p>
+        </section>
+        <section>
+            <h2>How This Subnet Works</h2>
+            <h3>Validator</h3>
+            <p>Validators send queries to miners and perform CRUD operations, issuing create, update, delete, and read queries. They validate storage and embedding performance through read queries.</p>
+            <h3>Miner</h3>
+            <p>Miners embed and save data, identifying the most relevant text based on validators' requests using advanced embedding models.</p>
+        </section>
+        <section>
+            <h2>Incentive Mechanism</h2>
+            <p>Miners are categorized into five groups based on the number of synapse circles processed:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Count</th>
+                        <th>Weight</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Squire</td>
+                        <td>&lt; 100</td>
+                        <td>0.6</td>
+                    </tr>
+                    <tr>
+                        <td>Knight</td>
+                        <td>&lt; 150</td>
+                        <td>0.7</td>
+                    </tr>
+                    <tr>
+                        <td>Champion</td>
+                        <td>&lt; 250</td>
+                        <td>0.8</td>
+                    </tr>
+                    <tr>
+                        <td>Paladin</td>
+                        <td>&lt; 400</td>
+                        <td>0.9</td>
+                    </tr>
+                    <tr>
+                        <td>Lord</td>
+                        <td>≥ 400</td>
+                        <td>1.0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section>
+            <h2>Rewarding</h2>
+            <p>The reward is calculated using the cosine similarity score:</p>
+            <p><code>reward = 0.8 * score7 + 0.1 * score5 + 0.1 * score3</code></p>
+            <p>This ensures higher rewards for scores close to 1.0 and gradual penalties for lower scores.</p>
+        </section>
+        <section>
+            <h2>Development Roadmap</h2>
+            <h3>Current Status</h3>
+            <p>The subnet currently operates with synthetic synapses, where validators scrape and store Wikipedia data.</p>
+            <h3>Upcoming Features</h3>
+            <ul>
+                <li>Dual Synapse System (Synthetic and Organic Synapses)</li>
+                <li>User-friendly storage interface</li>
+                <li>Distributed storage with backup mechanisms</li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 VectorStore Subnet. All rights reserved.</p>
+    </footer>
+</body>
+</html>

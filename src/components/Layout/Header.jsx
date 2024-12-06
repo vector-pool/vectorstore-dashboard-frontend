@@ -16,23 +16,23 @@ const Header = () => {
       <nav>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/">HOME</Link>
           </li>
           {/* <li>
             <Link to="/pools">Pools</Link>
           </li>
           <li>
             <Link to="/analytics">Analytics</Link>
-          </li>
-          <li>
-            <Link to="/predictions">Predictions</Link>
-          </li>
-          <li>
-            <Link to="/api-docs">API Docs</Link>
           </li> */}
           <li>
-            <Link to="/about">About</Link>
+            <Link to="/predictions">ABOUT US</Link>
           </li>
+          {/* <li>
+            <Link to="/api-docs">API Docs</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li> */}
         </ul>
       </nav>
     </header>
