@@ -14,8 +14,8 @@ const HomePage = () => {
       <FeaturedMetrics />
       {/* <TopPoolsSnapshot /> */}
       <RecentEvents />
-      <KeyFeatures />
-      <CallToAction />
+      {/* <KeyFeatures /> */}
+      {/* <CallToAction /> */}
     </Container>
   );
 };
