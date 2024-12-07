@@ -1,37 +1,79 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { Typography, Paper, CircularProgress, Box } from '@mui/material';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import {Box, Paper, Typography, Grid, TextField, FormControl, InputLabel, Select, MenuItem, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TablePagination, Button } from '@mui/material';
+
+const samplePools = [
+  {
+    hotkey: "12345",
+    validator: 2,
+    operation: "ETH",
+    s_f: "UID67890",
+    score: "ColdKey456",
+    timestamp: "HotKey456",
+  },
+  {
+    hotkey: "12345",
+    validator: 2,
+    operation: "ETH",
+    s_f: "UID67890",
+    score: "ColdKey456",
+    timestamp: "HotKey456",
+  },
+  {
+    hotkey: "12345",
+    validator: 2,
+    operation: "ETH",
+    s_f: "UID67890",
+    score: "ColdKey456",
+    timestamp: "HotKey456",
+  },
+];
+
+const HOTKEY="12345456345"
 
 const MinerStatusPage = () => {
-  const { hotkey } = useParams(); // Get the dynamic 'hotkey' from the URL
-  const [minerData, setMinerData] = useState(null); // State to store miner data
-  const [loading, setLoading] = useState(true); // Loading state
-  const [error, setError] = useState(null); // Error state
+  const navigate = useNavigate();
+  const [pools, setPools] = useState(samplePools);
+  const [search, setSearch] = useState('');
+  const [feeTier, setFeeTier] = useState("All");
+  const [liquidityThreshold, setLiquidityThreshold] = useState('');
+  const [volumeThreshold, setVolumeThreshold] = useState('');
+  const [sortField, setSortField] = useState("None");
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [totalPools, setTotalPools] = useState(0);
 
-  // Fetch miner data when the component loads or when 'hotkey' changes
   useEffect(() => {
-    const fetchMinerData = async () => {
-      try {
-        const response = await axios.get(`http://localhost:8000/api/miner_status/${hotkey}`);
-        setMinerData(response.data); // Set the fetched data
-        setLoading(false); // Set loading to false
-      } catch (err) {
-        setError('Failed to fetch miner data'); // Handle errors
-        setLoading(false);
-      }
-    };
+    fetchPools(page, rowsPerPage);
+  }, [page, rowsPerPage, search, feeTier, liquidityThreshold, volumeThreshold, sortField]);
 
-    fetchMinerData();
-  }, [hotkey]);
+  
 
-  // Render loading, error, or the miner data
+  const fetchPools = async (page, rowsPerPage) => {
+    
+    const response = await axios.get(`http://localhost:8000/api/miner_status/${hotkey}`);
+    const data = response.data;
+    setPools(data.pools);
+    setTotalPools(data.total);
+
+  };
+
+  const handlePageChange = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleRowsPerPageChange = (event) => {
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
+  };
+
   return (
     <Paper sx={{ padding: '20px', marginBottom: '40px' }}>
       <Grid container spacing={2} sx={{ marginBottom: '20px' }}>
         <Grid item xs={12} sm={6} md={3}>
           <TextField
-            label="Search by coldkey"
+            label="Filter by validator"
             variant="outlined"
             fullWidth
             value={volumeThreshold}
@@ -40,7 +82,7 @@ const MinerStatusPage = () => {
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
           <TextField
-            label="Search by hotkey"
+            label="Filter by (S/F)"
             variant="outlined"
             fullWidth
             value={search}
@@ -49,7 +91,7 @@ const MinerStatusPage = () => {
         </Grid>
         <Grid item xs={12} sm={6} md={2}>
           <TextField
-            label="Search by uid"
+            label="Filter by CRUD type"
             variant="outlined"
             fullWidth
             value={liquidityThreshold}
@@ -88,49 +130,42 @@ const MinerStatusPage = () => {
         </Grid>
       </Grid>
       <TableContainer component={Paper}>
+        <Box p={2}>
+          <Typography variant="h6" fontWeight="bold" align="center">
+            HOTKEY: {HOTKEY}
+          </Typography>
+        </Box>
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell><Typography fontWeight="bold">ORDER</Typography></TableCell>
-              <TableCell><Typography fontWeight="bold">UID</Typography></TableCell>
-              <TableCell><Typography fontWeight="bold">COLDKEY</Typography></TableCell>
-              <TableCell><Typography fontWeight="bold">HOTKEY</Typography></TableCell>
-              <TableCell><Typography fontWeight="bold">INCENTIVE</Typography></TableCell>
-              <TableCell><Typography fontWeight="bold">DAILY REWARD</Typography></TableCell>
-              <TableCell><Typography fontWeight="bold">LIVE</Typography></TableCell>
-              <TableCell><Typography fontWeight="bold">Average Score</Typography></TableCell>
-              <TableCell><Typography fontWeight="bold">Total Storage</Typography></TableCell>
-              <TableCell><Typography fontWeight="bold">Stability</Typography></TableCell>
-              <TableCell><Typography fontWeight="bold">DETAILS</Typography></TableCell>
+              <TableCell><Typography fontWeight="bold">VALIDATOR</Typography></TableCell>
+              <TableCell><Typography fontWeight="bold">OPERATION</Typography></TableCell>
+              <TableCell><Typography fontWeight="bold">S/F</Typography></TableCell>
+              <TableCell><Typography fontWeight="bold">SCORE</Typography></TableCell>
+              <TableCell><Typography fontWeight="bold">TIMESTAMP</Typography></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {pools.map((pool, index) => (
               <TableRow key={index}>
-                <TableCell>{pool.order} / {pool.token1_symbol}</TableCell>
-                <TableCell>{pool.uid}</TableCell>
-                <TableCell>{pool.coldkey}</TableCell>
-                <TableCell>{pool.hotkey}</TableCell>
-                <TableCell>{pool.incentive}</TableCell>
-                <TableCell>{pool.daily_reward}</TableCell>
-                <TableCell>{pool.live}</TableCell>
-                <TableCell>{pool.average_score}</TableCell>
-                <TableCell>{pool.total_storage}</TableCell>
-                <TableCell>{pool.stability}</TableCell>
-                <TableCell><Button onClick={()=> {navigate("/miner_status/"+pool.hotkey)}}>View Details</Button></TableCell>
+                <TableCell>{pool.validator}</TableCell>
+                <TableCell>{pool.operation}</TableCell>
+                <TableCell>{pool.s_f}</TableCell>
+                <TableCell>{pool.score}</TableCell>
+                <TableCell>{pool.timestamp}</TableCell>
               </TableRow>
             ))}
           </TableBody>
         </Table>
       </TableContainer>
-      {/* <TablePagination
+      <TablePagination
         component="div"
         count={totalPools}
         page={page}
         onPageChange={handlePageChange}
         rowsPerPage={rowsPerPage}
         onRowsPerPageChange={handleRowsPerPageChange}
-      /> */}
+      />
     </Paper>
   );
 };
