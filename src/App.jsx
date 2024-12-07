@@ -7,6 +7,7 @@ import PoolsPage from './pages/PoolsPage';
 import AnalyticsPage from './pages/AnalyticsPage';
 import Layout from './components/Layout/Layout';
 import PredictionsPage from './pages/PredictionsPage';
+import MinerStatusPage from './pages/MinerStatusPage';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/analytics/:poolAddress?" element={<AnalyticsPage />} />
           {/* <Route path="/predictions/:poolAddress?" element={<PredictionsPage />} /> */}
           <Route path="/predictions/:poolAddress?" element={<PredictionsPage />} />
+          <Route path="/miner_status/:hotkey" element={<MinerStatusPage />} />
         </Routes>
       </Layout>
     </Router>
