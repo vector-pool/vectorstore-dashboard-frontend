@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../../styles/Header.css'; // Import the CSS file for styling
-import logo from '../../nestlest.svg'; // Import the logo image
+import logo from '../../vectorstore.png'; // Import the logo image
 const Header = () => {
   return (
     <header className="header">
