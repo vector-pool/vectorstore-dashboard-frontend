@@ -20,10 +20,10 @@ const Header = () => {
           </li>
           {/* <li>
             <Link to="/pools">Pools</Link>
-          </li>
+          </li> */}
           <li>
             <Link to="/analytics">Analytics</Link>
-          </li> */}
+          </li>
           <li>
             <Link to="/predictions">ABOUT US</Link>
           </li>

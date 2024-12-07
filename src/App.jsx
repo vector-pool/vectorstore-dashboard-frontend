@@ -14,8 +14,9 @@ function App() {
       <Layout>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/pools" element={<PoolsPage />} />
+          {/* <Route path="/pools" element={<PoolsPage />} /> */}
           <Route path="/analytics/:poolAddress?" element={<AnalyticsPage />} />
+          {/* <Route path="/predictions/:poolAddress?" element={<PredictionsPage />} /> */}
           <Route path="/predictions/:poolAddress?" element={<PredictionsPage />} />
         </Routes>
       </Layout>
