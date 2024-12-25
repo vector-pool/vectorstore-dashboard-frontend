@@ -28,6 +28,8 @@ const PredictionsPage = () => {
       textAlign: 'center',
       boxShadow: '0 2px 5px rgba(0, 0, 0, 0.5)',
       position: 'relative',
+      marginBottom: 0,
+      marginTop: 0,
     },
     main: {
       maxWidth: '1300px',

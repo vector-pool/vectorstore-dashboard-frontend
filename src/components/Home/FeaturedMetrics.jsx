@@ -10,7 +10,7 @@ const FeaturedMetrics = () => {
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6} md={3}>
           <Paper sx={{ padding: '10px', textAlign: 'center' }}>
-            <Typography variant="h6">Total storage (24h)</Typography>
+            <Typography variant="h6">Total storage</Typography>
             <Typography variant="body1">325GB</Typography>
           </Paper>
         </Grid>

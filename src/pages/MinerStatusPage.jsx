@@ -5,30 +5,34 @@ import {Box, Paper, Typography, Grid, TextField, FormControl, InputLabel, Select
 
 const samplePools = [
   {
-    hotkey: "12345",
-    validator: 2,
-    operation: "ETH",
-    s_f: "UID67890",
-    score: "ColdKey456",
-    timestamp: "HotKey456",
+    hotkey: "5DD26kC4CNirXXyN6bMvGxbxVpwbCVuBGxkTKVE7kGzRLDGD", // SS58 format address
+    validator: "5FWP7QS6dfgZE7AxkDJ5FUVDtNxKFpwvnKwxAQAhxN7kJ1Tz", // validator address
+    operation: "Create", // common bittensor operation type
+    s_f: "success", // success/failure indicator
+    score: 1.0, // typical score between 0-1
+    timestamp: "2024-12-17T14:03:45.123Z", // ISO timestamp
+    request_cycle_score: 0.83 // optional cycle score
   },
   {
-    hotkey: "12345",
-    validator: 2,
-    operation: "ETH",
-    s_f: "UID67890",
-    score: "ColdKey456",
-    timestamp: "HotKey456",
+    hotkey: "5CJaTPgn5UYUDzfxc6v6k4xW3Pc9MvqktP7u9PKxE3qCE6qN",
+    validator: "5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY",
+    operation: "Update",
+    s_f: "failure",
+    score: 0,
+    timestamp: "2024-12-17T14:02:30.456Z",
+    request_cycle_score: 0.623
   },
   {
-    hotkey: "12345",
-    validator: 2,
-    operation: "ETH",
-    s_f: "UID67890",
-    score: "ColdKey456",
-    timestamp: "HotKey456",
-  },
+    hotkey: "5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty",
+    validator: "5FLSigC9HGRKVhB9FiEo4Y3koPsNmBmLJbpXg2mp1hXcS59Y",
+    operation: "Read",
+    s_f: "success",
+    score: 0.87,
+    timestamp: "2024-12-17T14:01:15.789Z",
+    request_cycle_score: 0.713
+  }
 ];
+
 
 const HOTKEY="12345456345"
 
@@ -52,7 +56,7 @@ const MinerStatusPage = () => {
 
   const fetchPools = async (page, rowsPerPage) => {
     
-    const response = await axios.get(`http://localhost:8000/api/miner_status/${hotkey}`);
+    const response = await axios.get(`http://localhost:8000/api/miner_status/${HOTKEY}`);
     const data = response.data;
     setPools(data.pools);
     setTotalPools(data.total);
@@ -69,7 +73,7 @@ const MinerStatusPage = () => {
   };
 
   return (
-    <Paper sx={{ padding: '20px', marginBottom: '40px' }}>
+    <Paper sx={{ margin: '60px', padding: '20px', marginBottom: '40px', minHeight: '100vh' }}>
       <Grid container spacing={2} sx={{ marginBottom: '20px' }}>
         <Grid item xs={12} sm={6} md={3}>
           <TextField
@@ -98,7 +102,7 @@ const MinerStatusPage = () => {
             onChange={(e) => setLiquidityThreshold(e.target.value, 10)}
           />
         </Grid>
-        <Grid item xs={12} sm={6} md={2}>
+        {/* <Grid item xs={12} sm={6} md={2}>
           <FormControl fullWidth variant="outlined">
             <InputLabel>Fee Tier</InputLabel>
             <Select
@@ -112,7 +116,7 @@ const MinerStatusPage = () => {
               <MenuItem value="10000">1%</MenuItem>
             </Select>
           </FormControl>
-        </Grid>
+        </Grid> */}
         <Grid item xs={12} sm={6} md={2}>
           <FormControl fullWidth variant="outlined">
             <InputLabel>Sort By</InputLabel>
@@ -132,7 +136,7 @@ const MinerStatusPage = () => {
       <TableContainer component={Paper}>
         <Box p={2}>
           <Typography variant="h6" fontWeight="bold" align="center">
-            HOTKEY: {HOTKEY}
+            UID: 130, HOTKEY: 5FxcZraZACr4L78jWkcYe3FHdiwiAUzrKLVtsSwkvFobBKqq 
           </Typography>
         </Box>
         <Table>
@@ -143,6 +147,7 @@ const MinerStatusPage = () => {
               <TableCell><Typography fontWeight="bold">S/F</Typography></TableCell>
               <TableCell><Typography fontWeight="bold">SCORE</Typography></TableCell>
               <TableCell><Typography fontWeight="bold">TIMESTAMP</Typography></TableCell>
+              <TableCell><Typography fontWeight="bold">Request_cycle_score</Typography></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -153,6 +158,7 @@ const MinerStatusPage = () => {
                 <TableCell>{pool.s_f}</TableCell>
                 <TableCell>{pool.score}</TableCell>
                 <TableCell>{pool.timestamp}</TableCell>
+                <TableCell>{pool.request_cycle_score}</TableCell>
               </TableRow>
             ))}
           </TableBody>

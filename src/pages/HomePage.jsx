@@ -9,7 +9,7 @@ import CallToAction from '../components/Home/CallToAction';
 
 const HomePage = () => {
   return (
-    <Container className="homepage" sx={{ padding: '20px' }}>
+    <Container className="homepage" sx={{ padding: '40px' }}>
       <WelcomeBanner />
       <FeaturedMetrics />
       {/* <TopPoolsSnapshot /> */}

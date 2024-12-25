@@ -29,7 +29,9 @@
 }
 
 .homepage {
-  padding: 20px;
+  padding: 80px !important;
+  margin: 0 !important;
+  max-width: none !important;
 }
 
 .pool-list {
