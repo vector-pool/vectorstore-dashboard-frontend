@@ -115,7 +115,7 @@ const PredictionsPage = () => {
           }}
         >
           <p>
-            <a href="https://discord.gg" target="_blank" rel="noopener noreferrer">
+            <a href="https://discord.gg/bNk9DBpz" target="_blank" rel="noopener noreferrer">
               <img
                 src="/discord-logo.png"
                 alt="Discord"
@@ -128,13 +128,13 @@ const PredictionsPage = () => {
             </a>
           </p>
           <p>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/vector-pool/vector-store" target="_blank" rel="noopener noreferrer">
               <img
                 src="/github-logo.png"
                 alt="GitHub"
                 style={{
-                  width: '30px', // Set desired width
-                  height: '30px', // Set desired height
+                  width: '27px', // Set desired width
+                  height: '27px', // Set desired height
                   objectFit: 'contain', // Maintain aspect ratio
                 }}
               />
