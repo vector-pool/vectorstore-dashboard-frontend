@@ -102,17 +102,42 @@ const PredictionsPage = () => {
     <div style={styles.root}>
       <header style={styles.header}>
         <h1 style={styles.h1}>VectorStore Subnet</h1>
-        <div style={styles.linkContainer}>
+        <div
+          style={{
+            display: 'flex',
+            gap: '20px', // Space between links
+            alignItems: 'center', // Align vertically
+            position: 'absolute', // Position relative to the parent
+            right: '20px', // Push to the right side
+            top: '50%', // Center vertically relative to the header
+            transform: 'translateY(-50%)', // Adjust for perfect vertical alignment
+            paddingRight: '60px',
+          }}
+        >
           <p>
             <a href="https://discord.gg" target="_blank" rel="noopener noreferrer">
-              Discord
-              <img src="/vectorstore.png" alt="Discord" style={styles.img} />
+              <img
+                src="/discord-logo.png"
+                alt="Discord"
+                style={{
+                  width: '30px', // Set desired width
+                  height: '30px', // Set desired height
+                  objectFit: 'contain', // Maintain aspect ratio
+                }}
+              />
             </a>
           </p>
           <p>
-            <a href="https://discord.gg" target="_blank" rel="noopener noreferrer">
-              GitHub
-              <img src="/logo512.png" alt="GitHub" style={styles.img} />
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+              <img
+                src="/github-logo.png"
+                alt="GitHub"
+                style={{
+                  width: '30px', // Set desired width
+                  height: '30px', // Set desired height
+                  objectFit: 'contain', // Maintain aspect ratio
+                }}
+              />
             </a>
           </p>
         </div>
